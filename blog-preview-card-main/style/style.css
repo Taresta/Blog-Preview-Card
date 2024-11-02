@@ -24,27 +24,32 @@
     --text-preset-1: 800 24px/150% "Figtree"; /* Extra Bold */
     --text-preset-2: 500 16px/150% "Figtree"; /* Medium */
     --text-preset-3: 500 14px/150% "Figtree"; /* Medium */
-    --text-preset-3-bold: 800 14px/150% "Figtree" /* Extra Bold */
+    --text-preset-3-bold: 800 14px/150% "Figtree"; /* Extra Bold */
 }
+
 body {
     margin:0;
-    display:grid;
-    place-items: center;
-    height:100vh;
     background-color:var(--yellow);
-
+    padding: 1rem;
 }
 #card {
     background-color: var(--white);
     display: grid;
     padding: 1.5rem;
     border: 1px solid var(--gray-950);
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 8px 8px 0 var(--gray-950);
     gap: var(--spacing-200);
-    max-width: 24rem;
-    min-height: 32.625rem;
+    max-width:90%;
+    transition: box-shadow 0.3s ease;
 }
+#card:hover #title {
+    color:var(--yellow);
+}
+#card:hover{
+    box-shadow: 16px 16px 0 var(--gray-950);
+}
+
 #illustration-image {
     max-width: 100%;
     border-radius: 10px;
@@ -73,7 +78,10 @@ p, h1 {
 #title {
     font: var(--text-preset-1);
     color: var(--gray-950);
+    transition: color 0.3s ease;
+    cursor:pointer;
 }
+
 #description {
     font:var(--text-preset-2);
     color: var(--gray-500);
@@ -91,4 +99,14 @@ p, h1 {
 #author-name {
     font: var(--text-preset-3-bold);
     color:var(--gray-950);
+}
+
+@media (min-width: 426px) {
+    body {
+        padding:0;
+    }
+    #card {
+        max-width: 24rem;
+        min-height: 32.625rem;
+    }
 }
